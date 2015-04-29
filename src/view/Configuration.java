@@ -228,9 +228,9 @@ public class Configuration extends JFrame {
 		btnPreview_1.setBounds(439, 5, 137, 29);
 		contentPane.add(btnPreview_1);
 		
-		JLabel lblWelcomeTos = new JLabel("Welcome to 6's Wild Level Builder!");
+		JLabel lblWelcomeTos = new JLabel("Welcome to Sixes Wild Level Builder!");
 		lblWelcomeTos.setFont(new Font("Lucida Grande", Font.BOLD, 16));
-		lblWelcomeTos.setBounds(29, 9, 290, 16);
+		lblWelcomeTos.setBounds(29, 9, 359, 16);
 		contentPane.add(lblWelcomeTos);
 		
 		JLabel lblPleaseConfigureThe = new JLabel("Please configure the following options.");
@@ -273,5 +273,21 @@ public class Configuration extends JFrame {
 		JButton btnSetMoves = new JButton("Set Moves");
 		btnSetMoves.setBounds(479, 223, 95, 29);
 		contentPane.add(btnSetMoves);
+	}
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Configuration frame = new Configuration();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }
