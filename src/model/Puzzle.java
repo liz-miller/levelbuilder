@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Time;
-
 /**
  * Creates a Puzzle Level.
  * 
@@ -9,20 +7,20 @@ import java.sql.Time;
  *
  */
 public class Puzzle extends Level{
-	private String gameName;
-	private Square squares[];
-	private Tile tiles[];
+	private int num;
+	private Square squares[][]; //row, col
+	//private Tile tiles[];
 	private int numMoves;
 	private int numStars;
 	private int difficulty;
 	
-	public Puzzle(String gameName, Square squares[], Tile tiles[], int numMoves, int numStars, int difficulty){
-		this.gameName = gameName;
-		this.squares = squares;
-		this.tiles = tiles;
-		this.numMoves = numMoves;
-		this.numStars = numStars;
-		this.difficulty = difficulty;	
+	public Puzzle(){
+		this.setNum(num);
+		this.setSquares(squares);
+		//this.tiles = tiles;
+		this.setNumMoves(numMoves);
+		this.setNumStars(numStars);
+		this.setDifficulty(difficulty);	
 	}
 
 	@Override
@@ -35,6 +33,46 @@ public class Puzzle extends Level{
 	public void generateTiles() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public int getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(int difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	public int getNumStars() {
+		return numStars;
+	}
+
+	public void setNumStars(int numStars) {
+		this.numStars = numStars;
+	}
+
+	public int getNumMoves() {
+		return numMoves;
+	}
+
+	public void setNumMoves(int numMoves) {
+		this.numMoves = numMoves;
+	}
+
+	public Square[][] getSquares() {
+		return squares;
+	}
+
+	public void setSquares(Square squares[][]) {
+		this.squares = squares;
+	}
+
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
 	}
 	
 }
