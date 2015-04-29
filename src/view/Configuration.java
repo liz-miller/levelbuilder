@@ -22,20 +22,12 @@ public class Configuration extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtLevelNumber;
-	private static Master master;
-
-	public Configuration(Master master){
-		super();
-		this.master = master;
-
-		initalize();
-	}
 
 	/**
 	 * Create the frame.
 	 * @return 
 	 */
-	public void initalize() {
+	public Configuration() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(600,500);
 		contentPane = new JPanel();

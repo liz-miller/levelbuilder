@@ -16,40 +16,21 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * Splash screen for the Level Builder.
+ * @author Liz Miller
+ *
+ */
 public class Splash extends JFrame {
 
 	private JPanel contentPane;
-	
-	static Master master;
-	
-	public Splash(Master master){
-		super();
-		this.master = master;
-		intialize();
-	}
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Splash frame = new Splash(master);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			
-		});
-	}
 
 	/**
 	 * Initialize the frame.
 	 * 
 	 */
-	public void intialize() {
+	public Splash() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -89,5 +70,22 @@ public class Splash extends JFrame {
 		btnEnterBuilder.setBounds(327, 243, 117, 29);
 		contentPane.add(btnEnterBuilder);
 				
+	}
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Splash frame = new Splash();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+		});
 	}
 }
