@@ -13,6 +13,10 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
+
+import controller.BackToLevelType;
+import controller.LevelTypeController;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -141,7 +145,7 @@ public class Configuration extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		button_3.setBounds(441, 73, 135, 29);
+		button_3.setBounds(460, 5, 135, 29);
 		contentPane.add(button_3);
 		
 		JLabel lblSquarePlacement = new JLabel("Square Activation");
@@ -225,7 +229,7 @@ public class Configuration extends JFrame {
 		contentPane.add(btnSetBins);
 		
 		JButton btnPreview_1 = new JButton("Preview");
-		btnPreview_1.setBounds(439, 5, 137, 29);
+		btnPreview_1.setBounds(460, 37, 137, 29);
 		contentPane.add(btnPreview_1);
 		
 		JLabel lblWelcomeTos = new JLabel("Welcome to Sixes Wild Level Builder!");
@@ -273,6 +277,16 @@ public class Configuration extends JFrame {
 		JButton btnSetMoves = new JButton("Set Moves");
 		btnSetMoves.setBounds(479, 223, 95, 29);
 		contentPane.add(btnSetMoves);
+		
+		JButton btnBackToSelection = new JButton("Back to Menu");
+		btnBackToSelection.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new BackToLevelType(Configuration.this).back(); 
+			}
+		});
+		btnBackToSelection.setBackground(Color.PINK);
+		btnBackToSelection.setBounds(461, 73, 134, 29);
+		contentPane.add(btnBackToSelection);
 	}
 	
 	/**

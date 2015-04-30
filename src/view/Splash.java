@@ -2,19 +2,23 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Window;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.RootPaneContainer;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
+
+import controller.SplashToLevelTypeController;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 
 /**
  * Splash screen for the Level Builder.
@@ -31,7 +35,7 @@ public class Splash extends JFrame {
 	 * 
 	 */
 	public Splash() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -59,11 +63,11 @@ public class Splash extends JFrame {
 		contentPane.add(lblMadeForCs);
 		
 		JButton btnEnterBuilder = new JButton("Enter Builder");
+		
 		btnEnterBuilder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//create a new LevelType and initialize it.
-				LevelType l= new LevelType();
-				repaint();
+				 new SplashToLevelTypeController(Splash.this).process(); 
+				 
 			}
 		});
 		

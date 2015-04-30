@@ -7,10 +7,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JRadioButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+
+import controller.LevelTypeController;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 /**
@@ -42,7 +46,7 @@ public class LevelType extends JFrame {
 	 * Initialize the frame contents.
 	 * 
 	 */
-	public LevelType(){
+	public LevelType() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -52,12 +56,32 @@ public class LevelType extends JFrame {
 		JLabel lblSelectTheLevel = new JLabel("Select the level you want to build.");
 		
 		JButton btnPuzzle = new JButton("Puzzle");
+		btnPuzzle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new LevelTypeController(LevelType.this).puzzle(); 
+			}
+		});
 		
 		JButton btnLightning = new JButton("Lightning");
+		btnLightning.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new LevelTypeController(LevelType.this).lightning(); 
+			}
+		});
 		
 		JButton btnElimination = new JButton("Elimination");
+		btnElimination.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new LevelTypeController(LevelType.this).elimination(); 
+			}
+		});
 		
 		JButton btnRelease = new JButton("Release");
+		btnRelease.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new LevelTypeController(LevelType.this).release(); 
+			}
+		});
 		
 		JLabel lblLevelBuilder = new JLabel("LEVEL BUILDER");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
