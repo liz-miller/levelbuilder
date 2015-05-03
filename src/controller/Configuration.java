@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 
 import java.awt.EventQueue;
@@ -19,6 +19,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
 
 import javax.swing.JRadioButton;
 
@@ -29,7 +31,7 @@ public class Configuration extends JFrame {
 	private JPanel contentPane;
 	
 	Level level;
-
+	JTextField moves;
 	
 	/**
 	 * Construct the Configuration view.
@@ -53,7 +55,7 @@ public class Configuration extends JFrame {
 		String defaultMult1 = "10";
 		String defaultMult2 = "5";
 		String defaultMult3 = "2";
-
+		String defaultDiff = "1";
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(600,600);
@@ -61,53 +63,53 @@ public class Configuration extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		final JTextField field1 = new JTextField();
-		field1.setBackground(Color.LIGHT_GRAY);
-		field1.setBounds(183, 345, 37, 25);
-		field1.setText(defaultFreq);
+		final JTextField text_1 = new JTextField();
+		text_1.setBackground(Color.LIGHT_GRAY);
+		text_1.setBounds(241, 345, 37, 25);
+		text_1.setText(defaultFreq);
 		
-		final JTextField field2 = new JTextField();
-		field2.setBackground(Color.LIGHT_GRAY);
-		field2.setBounds(183, 376, 37, 25);
-		field2.setText(defaultFreq);
+		final JTextField text_2 = new JTextField();
+		text_2.setBackground(Color.LIGHT_GRAY);
+		text_2.setBounds(241, 376, 37, 25);
+		text_2.setText(defaultFreq);
 				
-		final JTextField field3 = new JTextField();
-		field3.setBackground(Color.LIGHT_GRAY);
-		field3.setBounds(183, 407, 37, 25);
-		field3.setText(defaultFreq);
+		final JTextField text_3 = new JTextField();
+		text_3.setBackground(Color.LIGHT_GRAY);
+		text_3.setBounds(241, 407, 37, 25);
+		text_3.setText(defaultFreq);
 		
-		final JTextField field4 = new JTextField();
-		field4.setBackground(Color.LIGHT_GRAY);
-		field4.setBounds(324, 345, 37, 25);
-		field4.setText(defaultFreq);
+		final JTextField text_4 = new JTextField();
+		text_4.setBackground(Color.LIGHT_GRAY);
+		text_4.setBounds(408, 345, 37, 25);
+		text_4.setText(defaultFreq);
 		
-		final JTextField field5 = new JTextField();
-		field5.setBackground(Color.LIGHT_GRAY);
-		field5.setBounds(324, 376, 37, 25);
-		field5.setText(defaultFreq);
+		final JTextField text_5 = new JTextField();
+		text_5.setBackground(Color.LIGHT_GRAY);
+		text_5.setBounds(408, 376, 37, 25);
+		text_5.setText(defaultFreq);
 		
-		final JTextField field6 = new JTextField();
-		field6.setBackground(Color.LIGHT_GRAY);
-		field6.setBounds(324, 407, 37, 25);
-		field6.setText(defaultFreq);
+		final JTextField text_6 = new JTextField();
+		text_6.setBackground(Color.LIGHT_GRAY);
+		text_6.setBounds(408, 407, 37, 25);
+		text_6.setText(defaultFreq);
 		
 		final JLabel lbls = new JLabel("1's Frequency");
-		lbls.setBounds(226, 345, 86, 16);
+		lbls.setBounds(284, 345, 123, 16);
 		
 		JLabel lblEnterAmountOf = new JLabel("2's Frequency");
-		lblEnterAmountOf.setBounds(226, 376, 86, 16);
+		lblEnterAmountOf.setBounds(284, 376, 123, 16);
 		
 		JLabel lblEnterAmountOf_1 = new JLabel("3's Frequency");
-		lblEnterAmountOf_1.setBounds(226, 407, 86, 16);
+		lblEnterAmountOf_1.setBounds(284, 407, 123, 16);
 		
 		JLabel lblEnterAmountOf_3 = new JLabel("5's Frequency");
-		lblEnterAmountOf_3.setBounds(367, 376, 95, 16);
+		lblEnterAmountOf_3.setBounds(451, 376, 123, 16);
 		
 		JLabel lblEnterAmountOf_2 = new JLabel("4's Frequency");
-		lblEnterAmountOf_2.setBounds(367, 345, 95, 16);
+		lblEnterAmountOf_2.setBounds(451, 345, 123, 16);
 		
 		JLabel lblEnterAmountOf_4 = new JLabel("6's Frequency");
-		lblEnterAmountOf_4.setBounds(367, 407, 95, 16);
+		lblEnterAmountOf_4.setBounds(451, 407, 123, 16);
 		
 		final JTextField text_rowSquare = new JTextField();
 		text_rowSquare.setBackground(Color.LIGHT_GRAY);
@@ -128,7 +130,7 @@ public class Configuration extends JFrame {
 		lblColNumber.setBounds(6, 204, 87, 16);
 		
 		JButton btnActivate = new JButton("Activate");
-		btnActivate.setBounds(66, 271, 95, 29);
+		btnActivate.setBounds(36, 261, 95, 29);
 		btnActivate.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -137,7 +139,7 @@ public class Configuration extends JFrame {
 		});
 		
 		JButton btnDeactivate = new JButton("Deactivate");
-		btnDeactivate.setBounds(66, 241, 95, 29);
+		btnDeactivate.setBounds(36, 235, 95, 29);
 		btnDeactivate.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -149,17 +151,17 @@ public class Configuration extends JFrame {
 		JButton btnPreview = new JButton("Preview");
 		btnPreview.setBounds(919, 5, 91, 29);
 		contentPane.setLayout(null);
-		contentPane.add(field6);
+		contentPane.add(text_6);
 		contentPane.add(lblEnterAmountOf_4);
-		contentPane.add(field4);
+		contentPane.add(text_4);
 		contentPane.add(lblEnterAmountOf_2);
-		contentPane.add(field2);
+		contentPane.add(text_2);
 		contentPane.add(lblEnterAmountOf);
-		contentPane.add(field1);
+		contentPane.add(text_1);
 		contentPane.add(lbls);
-		contentPane.add(field3);
+		contentPane.add(text_3);
 		contentPane.add(lblEnterAmountOf_1);
-		contentPane.add(field5);
+		contentPane.add(text_5);
 		contentPane.add(lblEnterAmountOf_3);
 		contentPane.add(lblRowNumber);
 		contentPane.add(text_rowSquare);
@@ -203,47 +205,47 @@ public class Configuration extends JFrame {
 		btnSets.setBounds(183, 241, 95, 29);
 		contentPane.add(btnSets);
 		
-		final JTextField freq_3 = new JTextField();
+		JTextField freq_3 = new JTextField();
 		freq_3.setBackground(Color.LIGHT_GRAY);
-		freq_3.setBounds(28, 407, 37, 25);
+		freq_3.setBounds(50, 407, 37, 25);
 		contentPane.add(freq_3);
 		freq_3.setText(defaultMult3);
 		
-		final JTextField freq_2 = new JTextField();
+		JTextField freq_2 = new JTextField();
 		freq_2.setBackground(Color.LIGHT_GRAY);
-		freq_2.setBounds(28, 376, 37, 25);
+		freq_2.setBounds(50, 376, 37, 25);
 		contentPane.add(freq_2);
 		freq_2.setText(defaultMult2);
 		
-		final JTextField freq_1 = new JTextField();
+		JTextField freq_1 = new JTextField();
 		freq_1.setBackground(Color.LIGHT_GRAY);
-		freq_1.setBounds(28, 345, 37, 25);
+		freq_1.setBounds(50, 345, 37, 25);
 		contentPane.add(freq_1);
 		freq_1.setText(defaultMult1);
 		
 		JLabel lblXFrequency_2 = new JLabel("x3 Frequency");
-		lblXFrequency_2.setBounds(71, 407, 123, 16);
+		lblXFrequency_2.setBounds(93, 407, 123, 16);
 		contentPane.add(lblXFrequency_2);
 		
 		JLabel lblXFrequency_1 = new JLabel("x2 Frequency");
-		lblXFrequency_1.setBounds(71, 376, 123, 16);
+		lblXFrequency_1.setBounds(93, 376, 123, 16);
 		contentPane.add(lblXFrequency_1);
 		
 		JLabel lblXFrequency = new JLabel("x1 Frequency");
-		lblXFrequency.setBounds(71, 345, 123, 16);
+		lblXFrequency.setBounds(93, 345, 123, 16);
 		contentPane.add(lblXFrequency);
 		
 		JLabel lblMultiplierConfiguration = new JLabel("Multiplier Configuration");
 		lblMultiplierConfiguration.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		lblMultiplierConfiguration.setBounds(7, 312, 183, 16);
+		lblMultiplierConfiguration.setBounds(29, 312, 183, 16);
 		contentPane.add(lblMultiplierConfiguration);
 		
 		JLabel lblTileConfiguration = new JLabel("Tile Configuration");
 		lblTileConfiguration.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		lblTileConfiguration.setBounds(277, 312, 183, 16);
+		lblTileConfiguration.setBounds(341, 312, 183, 16);
 		contentPane.add(lblTileConfiguration);
 		
-		JLabel lblPlaceBins = new JLabel("Place 6 Goals");
+		JLabel lblPlaceBins = new JLabel("Place 6 Bins");
 		lblPlaceBins.setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		lblPlaceBins.setBounds(288, 132, 95, 16);
 		contentPane.add(lblPlaceBins);
@@ -260,7 +262,7 @@ public class Configuration extends JFrame {
 		contentPane.add(col_bin);
 		col_bin.setText(defaultCol);
 		
-		JButton btnSetBins = new JButton("Set Goals");
+		JButton btnSetBins = new JButton("Set Bins");
 		btnSetBins.setBounds(288, 241, 95, 29);
 		contentPane.add(btnSetBins);
 		
@@ -279,47 +281,53 @@ public class Configuration extends JFrame {
 		contentPane.add(lblPleaseConfigureThe);
 		
 		JButton btnSetMultiplier = new JButton("Set Multiplier");
-		btnSetMultiplier.setBounds(44, 444, 117, 29);
+		btnSetMultiplier.setBounds(66, 444, 117, 29);
 		contentPane.add(btnSetMultiplier);
-		btnSetMultiplier.addActionListener(new ActionListener() {		
-			public void actionPerformed(ActionEvent e) {
-				new ContentController(Configuration.this).setMult(freq_1, freq_2, freq_3);
-			}
-		});
 		
 		JButton btnSetTiles = new JButton("Set Tiles");
-		btnSetTiles.setBounds(277, 444, 117, 29);
+		btnSetTiles.setBounds(341, 444, 117, 29);
 		contentPane.add(btnSetTiles);
-		btnSetTiles.addActionListener(new ActionListener() {		
+		btnSetTiles.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
-				new ContentController(Configuration.this).setTilePercents(field1, field2, field3, field4, field5, field6);
+				new ContentController(Configuration.this).setTilePercents(text_1, text_2, text_3, text_4, text_5, text_6);
 			}
 		});
 		
-		final JTextField starsField2 = new JTextField();
-		starsField2.setBackground(Color.LIGHT_GRAY);
-		starsField2.setBounds(474, 376, 37, 25);
-		contentPane.add(starsField2);
-		starsField2.setText(defaultStars);
+		final JTextField starsField = new JTextField();
+		starsField.setBackground(Color.LIGHT_GRAY);
+		starsField.setBounds(429, 142, 37, 25);
+		contentPane.add(starsField);
+		starsField.setText(defaultStars);
 		
 	    final JTextField moves = new JTextField();
 		moves.setBackground(Color.LIGHT_GRAY);
-		moves.setBounds(420, 199, 37, 25);
+		moves.setBounds(429, 204, 37, 25);
 		contentPane.add(moves);
 		moves.setText(defaultMoves);
 		
-		JLabel lblSetNumberOf = new JLabel("Stars Threshold");
+		JLabel lblSetNumberOf = new JLabel("Set Number of Stars");
 		lblSetNumberOf.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		lblSetNumberOf.setBounds(479, 312, 122, 16);
+		lblSetNumberOf.setBounds(440, 114, 154, 16);
 		contentPane.add(lblSetNumberOf);
 		
-		JLabel lblSetNumberOf_1 = new JLabel("Set Number of Moves/Time");
+		JLabel lblSetNumberOf_1 = new JLabel("Set Number of Moves");
 		lblSetNumberOf_1.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		lblSetNumberOf_1.setBounds(398, 165, 199, 16);
+		lblSetNumberOf_1.setBounds(440, 180, 154, 16);
 		contentPane.add(lblSetNumberOf_1);
 		
+		JButton btnSetStars = new JButton("Set Stars");
+		btnSetStars.setBounds(478, 137, 95, 29);
+		contentPane.add(btnSetStars);
+		btnSetStars.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				new ContentController(Configuration.this).setStars(starsField);
+			}
+		});
+		
 		JButton btnSetMoves = new JButton("Set Moves");
-		btnSetMoves.setBounds(468, 199, 95, 29);
+		btnSetMoves.setBounds(478, 199, 95, 29);
 		contentPane.add(btnSetMoves);
 		btnSetMoves.addActionListener(new ActionListener() {
 			
@@ -363,7 +371,7 @@ public class Configuration extends JFrame {
 		
 		JLabel lblChooseTheLevel = new JLabel("Choose the Level Type");
 		lblChooseTheLevel.setFont(new Font("Lucida Grande", Font.BOLD, 13));
-		lblChooseTheLevel.setBounds(200, 501, 183, 16);
+		lblChooseTheLevel.setBounds(241, 501, 183, 16);
 		contentPane.add(lblChooseTheLevel);
 		
 		
@@ -390,6 +398,27 @@ public class Configuration extends JFrame {
         group.add(rdbtnLightning);
         group.add(rdbtnElimination);
         group.add(rdbtnRelease);
+        
+        JLabel lblSetDifficulty = new JLabel("Set Difficulty");
+        lblSetDifficulty.setFont(new Font("Lucida Grande", Font.BOLD, 13));
+        lblSetDifficulty.setBounds(471, 238, 103, 16);
+        contentPane.add(lblSetDifficulty);
+        
+        final JTextField difficulty = new JTextField();
+        difficulty.setBackground(Color.LIGHT_GRAY);
+        difficulty.setBounds(429, 265, 37, 25);
+        contentPane.add(difficulty);
+        difficulty.setText(defaultDiff);
+        
+        JButton btnSetDifficulty = new JButton("Set Difficulty");
+        btnSetDifficulty.setBounds(478, 261, 116, 29);
+        contentPane.add(btnSetDifficulty);
+		btnSetDifficulty.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				new ContentController(Configuration.this).setDifficulty(difficulty);
+			}
+		});
         
       //add listeners
         rdbtnPuzzle.addActionListener(new ActionListener() {
@@ -427,52 +456,17 @@ public class Configuration extends JFrame {
             }
         });
         
-		
-		final JTextField starsField1 = new JTextField();
-		starsField1.setText("500");
-		starsField1.setBackground(Color.LIGHT_GRAY);
-		starsField1.setBounds(474, 345, 37, 25);
-		contentPane.add(starsField1);
-		
-		final JTextField starsField3 = new JTextField();
-		starsField3.setText("500");
-		starsField3.setBackground(Color.LIGHT_GRAY);
-		starsField3.setBounds(474, 406, 37, 25);
-		contentPane.add(starsField3);
-		
-		JLabel lblStar = new JLabel("1 STAR");
-		lblStar.setBounds(523, 350, 61, 16);
-		contentPane.add(lblStar);
-		
-		JLabel lblStar_1 = new JLabel("2 STAR");
-		lblStar_1.setBounds(523, 381, 61, 16);
-		contentPane.add(lblStar_1);
-		
-		JLabel lblStar_2 = new JLabel("3 STAR");
-		lblStar_2.setBounds(523, 412, 61, 16);
-		contentPane.add(lblStar_2);
-		
-		
-		JButton btnSetStars = new JButton("Set Threshold");
-		btnSetStars.setBounds(460, 444, 120, 29);
-		contentPane.add(btnSetStars);
-		btnSetStars.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent e) {
-				new ContentController(Configuration.this).setStars(starsField1, starsField2, starsField3);
-			}
-		});
-		
+        
 		JButton btnGenerate = new JButton("Generate Level");
 		btnGenerate.setBounds(460, 5, 135, 29);
 		contentPane.add(btnGenerate);
 		btnGenerate.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				new ContentController(Configuration.this).generate(level, levelNum, moves, starsField1, starsField2, starsField3,
-						freq_1, freq_2, freq_3, field1, field2, field3, field4, field5, field6);
+				new ContentController(Configuration.this).generate(level, levelNum, moves, starsField, difficulty);
 			}
 		});
+
         
 	}
 	

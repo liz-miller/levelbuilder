@@ -1,6 +1,9 @@
 package controller;
 
+import model.Elimination;
+import model.Lightning;
 import model.Puzzle;
+import model.Release;
 import view.Configuration;
 import view.LevelType;
 
@@ -11,7 +14,7 @@ import view.LevelType;
  */
 public class LevelTypeController{
 	LevelType parent;
-	int levelType;
+	int levelType; 
 	
 	public LevelTypeController(LevelType parent) {
 		this.parent = parent;
@@ -35,7 +38,8 @@ public class LevelTypeController{
 	 * @return int 2
 	 */
 	public void lightning() {
-		Configuration config = new Configuration(null);
+		Lightning l = new Lightning();
+		Configuration config = new Configuration(l);
 		parent.dispose();
 		config.setVisible (true);
 		levelType = 2;
@@ -46,10 +50,12 @@ public class LevelTypeController{
 	 * @return int 3
 	 */
 	public void release() {
-		Configuration config = new Configuration(null);
+		Release r = new Release();
+		Configuration config = new Configuration(r);
 		parent.dispose();
+		//config.setBoolean(false);
 		config.setVisible (true);
-		levelType = 3;
+		levelType = 4;
 	}
 	
 	/**
@@ -57,10 +63,11 @@ public class LevelTypeController{
 	 * @return int 4
 	 */
 	public void elimination() {
-		Configuration config = new Configuration(null);
+		Elimination e = new Elimination();
+		Configuration config = new Configuration(e);
 		parent.dispose();
 		config.setVisible (true);
-		levelType = 4;
+		levelType = 3;
 	}
 	
 	
