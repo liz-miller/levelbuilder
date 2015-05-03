@@ -1,5 +1,6 @@
 package controller;
 
+import model.Puzzle;
 import view.Configuration;
 import view.LevelType;
 
@@ -21,7 +22,9 @@ public class LevelTypeController{
 	 * @return int 1
 	 */
 	public void puzzle() {
-		Configuration config = new Configuration();
+		Puzzle p = new Puzzle();
+		p.setNumMoves(55);
+		Configuration config = new Configuration(p);
 		parent.dispose();
 		config.setVisible (true);
 		levelType = 1;
@@ -32,7 +35,7 @@ public class LevelTypeController{
 	 * @return int 2
 	 */
 	public void lightning() {
-		Configuration config = new Configuration();
+		Configuration config = new Configuration(null);
 		parent.dispose();
 		config.setVisible (true);
 		levelType = 2;
@@ -43,7 +46,7 @@ public class LevelTypeController{
 	 * @return int 3
 	 */
 	public void release() {
-		Configuration config = new Configuration();
+		Configuration config = new Configuration(null);
 		parent.dispose();
 		config.setVisible (true);
 		levelType = 3;
@@ -54,7 +57,7 @@ public class LevelTypeController{
 	 * @return int 4
 	 */
 	public void elimination() {
-		Configuration config = new Configuration();
+		Configuration config = new Configuration(null);
 		parent.dispose();
 		config.setVisible (true);
 		levelType = 4;

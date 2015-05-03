@@ -4,10 +4,8 @@ import java.awt.Color;
 
 /**
  * Square - this Object will be the building blocks to a Board, and can contain a Tile which can be used to a Move
- * If a Square is inert, then it cannot be selected and it cannot contain a Tile. Modified for Level Builder.
- * 
- * @author Alex Bittle
- * @author Liz Miller
+ * If a Square is inert, then it cannot be selected and it cannot contain a Tile.
+ * @author Alex
  *
  */
 
@@ -28,7 +26,7 @@ public class Square{
 	public Square(int r, int c){
 		this.row = r;
 		this.col = c;
-		//this.tile = null;  
+		this.tile = null;
 		isMarked = false;
 		this.isInert = false;
 	}
@@ -42,7 +40,7 @@ public class Square{
 	public Square(int r, int c, boolean isInert){
 		this.row = r;
 		this.col = c;
-		//this.tile = null;
+		this.tile = null;
 		this.isMarked = false;
 		this.isInert = isInert;
 	}
@@ -56,8 +54,8 @@ public class Square{
 	public Square(int r, int c, Tile tile){
 		this.row = r;
 		this.col = c;
-		//this.tile = tile;
-		//this.tile.setParent(this);
+		this.tile = tile;
+		this.tile.setParent(this);
 		this.isMarked = false;
 		this.isInert = false;
 	}
@@ -118,7 +116,7 @@ public class Square{
 	 */
 	public void setMarked(){
 		if(isInert){
-			System.err.println("Square: Attempted to mark an inert Square");
+			//System.err.println("Square: Attempted to mark an inert Square");
 			return;
 		}
 		isMarked = true;
@@ -174,7 +172,6 @@ public class Square{
 	 */
 	public void addTile(Tile tile){
 		if(isInert){
-			System.err.println("Square: Attempted to add a Tile to an inert Square");
 			return;
 		}
 		this.tile = tile;

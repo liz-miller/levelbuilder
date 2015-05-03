@@ -58,7 +58,9 @@ public class LevelType extends JFrame {
 		JButton btnPuzzle = new JButton("Puzzle");
 		btnPuzzle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new LevelTypeController(LevelType.this).puzzle(); 
+				
+				new LevelTypeController(LevelType.this).puzzle();
+				
 			}
 		});
 		

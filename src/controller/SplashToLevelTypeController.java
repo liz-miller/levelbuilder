@@ -1,5 +1,7 @@
 package controller;
 
+import model.Level;
+import view.Configuration;
 import view.LevelType;
 import view.Splash;
 
@@ -19,8 +21,10 @@ public class SplashToLevelTypeController {
 	 * Switch to the level type view display.
 	 */
 	public void process() {
-		LevelType type = new LevelType();
+		//LevelType type = new LevelType();
+		Level l = new Level();
+		Configuration c = new Configuration(l);
 		parent.dispose();
-		type.setVisible (true);
+		c.setVisible (true);
 	}
 }
