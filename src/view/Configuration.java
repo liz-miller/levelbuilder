@@ -27,7 +27,6 @@ import javax.swing.JRadioButton;
  */
 public class Configuration extends JFrame {
 	private JPanel contentPane;
-	
 	Level level;
 
 	
@@ -298,7 +297,7 @@ public class Configuration extends JFrame {
 		
 		final JTextField starsField2 = new JTextField();
 		starsField2.setBackground(Color.LIGHT_GRAY);
-		starsField2.setBounds(474, 376, 37, 25);
+		starsField2.setBounds(474, 376, 47, 25);
 		contentPane.add(starsField2);
 		starsField2.setText(defaultStars);
 		
@@ -431,13 +430,13 @@ public class Configuration extends JFrame {
 		final JTextField starsField1 = new JTextField();
 		starsField1.setText("500");
 		starsField1.setBackground(Color.LIGHT_GRAY);
-		starsField1.setBounds(474, 345, 37, 25);
+		starsField1.setBounds(474, 345, 47, 25);
 		contentPane.add(starsField1);
 		
 		final JTextField starsField3 = new JTextField();
 		starsField3.setText("500");
 		starsField3.setBackground(Color.LIGHT_GRAY);
-		starsField3.setBounds(474, 406, 37, 25);
+		starsField3.setBounds(474, 406, 47, 25);
 		contentPane.add(starsField3);
 		
 		JLabel lblStar = new JLabel("1 STAR");
