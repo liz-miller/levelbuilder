@@ -203,12 +203,13 @@ public class ContentController {
 	public void generate(Level l, JTextField num, JTextField moves, JTextField stars1, JTextField stars2, JTextField stars3, 
 			JTextField freq_1, JTextField freq_2, JTextField freq_3, 
 			JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JTextField t6){
+		new LevelBuilder();
 		
-		setTilePercents(t1, t2, t3, t4, t5, t6);
-		setMult(freq_1, freq_2,freq_3);
-		setLevel(num);
-		setMoves(moves);
-		setStars(stars1, stars2, stars3);			
+//		setTilePercents(t1, t2, t3, t4, t5, t6);
+//		setMult(freq_1, freq_2,freq_3);
+//		setLevel(num);
+//		setMoves(moves);
+//		setStars(stars1, stars2, stars3);			
 		//printAll(l);
 	}
 	

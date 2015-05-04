@@ -1,21 +1,18 @@
 package controller;
 
+import SixesWildGame.model.Elimination;
+import SixesWildGame.model.Lightning;
+import SixesWildGame.model.Puzzle;
+import SixesWildGame.model.Release;
+import SixesWildGame.model.Square;
 import view.Configuration;
-
 import controller.Serializer;
 
-import model.Level;
-import SixesWild.model.Level;
-import SixesWild.model.Lightning;
-import SixesWild.model.Puzzle;
-import SixesWild.model.Release;
-import SixesWild.model.Square;
-import SixesWild.model.Elimination;
 
 
 public class LevelBuilder {
 	Configuration config;
-	private static Level l;
+	private static model.Level l;
 	
 	public static void main(String[] args) {
 		int[] starThresholds = {l.getSingleStar(l, 0), l.getSingleStar(l, 1), l.getSingleStar(l, 2)};
@@ -23,28 +20,46 @@ public class LevelBuilder {
 		int[] valWeight = {l.getFreq(l, 0), l.getFreq(l,1), l.getFreq(l, 2)};
 		int type = l.getType();
 		int num = l.getNum();
+		Lightning lightLevel = null;
+		Elimination elimLevel = null;
+		Release reLevel = null;
+		Puzzle puzzLevel = null;
 		
 		if (type == 2){
-			l = new Lightning(30, starThresholds, valWeight, multWeight, 3, 3, num);			
+			lightLevel = new Lightning(30, starThresholds, valWeight, multWeight, 3, 3, num);			
 		}else if(type == 3){
-			l = new Elimination(starThresholds, valWeight, multWeight, 3, 3, num);
+			elimLevel = new Elimination(starThresholds, valWeight, multWeight, 3, 3, num);
 		} else  if(type == 4){
-			l = new Release(30, starThresholds, valWeight, multWeight, 3, 3, num);
+			reLevel = new Release(30, starThresholds, valWeight, multWeight, 3, 3, num);
 		} else{
-			l = new Puzzle(30, starThresholds, valWeight, multWeight, 3, 3, num);
+			puzzLevel = new Puzzle(30, starThresholds, valWeight, multWeight, 3, 3, num);
 		}
 		
 		for(int i = 0; i < 9; i++){
-			l.getBoard().setSquare(new Square(0,i,1));
+			lightLevel.getBoard().setSquare(new Square(0,i,1));
+			elimLevel.getBoard().setSquare(new Square(0,i,1));
+			reLevel.getBoard().setSquare(new Square(0,i,1));
+			puzzLevel.getBoard().setSquare(new Square(0,i,1));
 		}
 		for(int i = 0; i < 9; i++){
-			l.getBoard().setSquare(new Square(8,i,1));
+			lightLevel.getBoard().setSquare(new Square(8,i,1));
+			elimLevel.getBoard().setSquare(new Square(8,i,1));
+			reLevel.getBoard().setSquare(new Square(8,i,1));
+			puzzLevel.getBoard().setSquare(new Square(8,i,1));
+			
 		}
 		for(int i = 0; i < 9; i++){
-			l.getBoard().setSquare(new Square(1,i,1));
+			lightLevel.getBoard().setSquare(new Square(1,i,1));
+			elimLevel.getBoard().setSquare(new Square(1,i,1));
+			reLevel.getBoard().setSquare(new Square(1,i,1));
+			puzzLevel.getBoard().setSquare(new Square(1,i,1));
+					
 		}
 		for(int i = 0; i < 9; i++){
-			l.getBoard().setSquare(new Square(7,i,1));
+			lightLevel.getBoard().setSquare(new Square(7,i,1));
+			elimLevel.getBoard().setSquare(new Square(7,i,1));
+			reLevel.getBoard().setSquare(new Square(7,i,1));
+			puzzLevel.getBoard().setSquare(new Square(7,i,1));
 		}
 				
 		Serializer serializer = new Serializer();
