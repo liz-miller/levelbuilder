@@ -77,16 +77,17 @@ public class ContentController {
 	 * Sets the level type based on the current level instance.
 	 *
 	 */
-	public void getLevelType(){
+	public int getLevelType(){
 		if(l instanceof Puzzle){
-			l.setType(1);
+			return 1;
 		}else if (l instanceof Lightning){
-			l.setType(2);
+			return 2;
 		}else if (l instanceof Elimination){
-			l.setType(3);
+			return 3;
 		}else if (l instanceof Release){
-			l.setType(4);
+			return 4;
 		}
+		return 0;
 	}
 	
 	/**
@@ -203,7 +204,7 @@ public class ContentController {
 	public void generate(Level l, JTextField num, JTextField moves, JTextField stars1, JTextField stars2, JTextField stars3, 
 			JTextField freq_1, JTextField freq_2, JTextField freq_3, 
 			JTextField t1, JTextField t2, JTextField t3, JTextField t4, JTextField t5, JTextField t6){
-		new LevelBuilder();
+		new LevelBuilderController(config);
 		
 //		setTilePercents(t1, t2, t3, t4, t5, t6);
 //		setMult(freq_1, freq_2,freq_3);

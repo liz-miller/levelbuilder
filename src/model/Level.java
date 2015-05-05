@@ -131,7 +131,9 @@ public class Level {
 	 * @return
 	 */
 	public int getNumMoves(Level l){
+		System.out.println("getNumMoves reading = " + l.numMoves);
 		return l.numMoves;
+		
 	}
 	
 	/**

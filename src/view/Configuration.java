@@ -1,8 +1,6 @@
 package view;
 
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,9 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 
-import model.*;
 import controller.BackToLevelType;
 import controller.ContentController;
+import controller.LevelBuilderController;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -23,18 +21,19 @@ import java.awt.Color;
 import javax.swing.JRadioButton;
 
 /**
- * 
+ * Configuration view: shows the form for data input.
+ * @author Liz Miller
  */
 public class Configuration extends JFrame {
 	private JPanel contentPane;
-	Level level;
+	model.Level level;
 
 	
 	/**
 	 * Construct the Configuration view.
 	 * @return 
 	 */
-	public Configuration(Level level) {
+	public Configuration(model.Level level) {
 		this.level = level;
 		initialize();
 	}
@@ -468,26 +467,26 @@ public class Configuration extends JFrame {
 		btnGenerate.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				new ContentController(Configuration.this).generate(level, levelNum, moves, starsField1, starsField2, starsField3,
+				new LevelBuilderController(Configuration.this).generate(level, levelNum, moves, starsField1, starsField2, starsField3,
 						freq_1, freq_2, freq_3, field1, field2, field3, field4, field5, field6);
 			}
 		});
         
 	}
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Configuration frame = new Configuration(new Level());
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});  
-	}
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Configuration frame = new Configuration(new Level());
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});  
+//	}
 }

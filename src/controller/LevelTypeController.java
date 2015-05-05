@@ -53,7 +53,7 @@ public class LevelTypeController{
 		Release r = new Release();
 		Configuration config = new Configuration(r);
 		parent.dispose();
-		//config.setBoolean(false);
+		config.setBoolean(false);
 		config.setVisible (true);
 		levelType = 4;
 	}

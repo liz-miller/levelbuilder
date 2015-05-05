@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>SixesWildGame</name>
+			<type>2</type>
+			<location>/Users/Liz/Documents/WPI/Senior_Year/D15/CS3733/Sixes_Wild/albiorix/SixesWild/What He Did/SixesWildGame/src/SixesWildGame</location>
+		</link>
+	</linkedResources>
 </projectDescription>
