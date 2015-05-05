@@ -146,6 +146,15 @@ public class Configuration extends JFrame {
 		
 		JButton btnPreview = new JButton("Preview");
 		btnPreview.setBounds(919, 5, 91, 29);
+		//NATE WAS HERE
+		/*
+		btnPreview.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				new ContentController(Configuration.this).deactivate(text_rowSquare, text_colSquare);
+			}
+		});
+		*/
 		contentPane.setLayout(null);
 		contentPane.add(field6);
 		contentPane.add(lblEnterAmountOf_4);
