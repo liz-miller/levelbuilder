@@ -1,5 +1,7 @@
 package controller;
 
+import SixesWildGame.boundary.Serializer;
+
 import javax.swing.JTextField;
 
 import SixesWildGame.model.Elimination;
@@ -8,7 +10,7 @@ import SixesWildGame.model.Puzzle;
 import SixesWildGame.model.Release;
 import SixesWildGame.model.Square;
 import view.Configuration;
-import controller.Serializer;
+
 
 
 /**
@@ -16,7 +18,7 @@ import controller.Serializer;
  * @author Liz Miller
  *
  */
-public class LevelBuilderController {
+public class LevelBuilderController{
 	Configuration config;
 	private static model.Level l;
 	
@@ -113,7 +115,7 @@ public class LevelBuilderController {
 		}
 				
 		Serializer serializer = new Serializer();
-		serializer.serializeLevel(l, numL);
+		serializer.serializeLevel(level, numL);
 	}
 
 }
